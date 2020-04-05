@@ -8,17 +8,21 @@ import { Router } from '@angular/router';
 })
 export class AuthenticationPage implements OnInit {
 
-
-  user: [];
+  username: string;
+  password: string;
+  user: [{username:"user1", password:"123"}];
   constructor(private router:Router) { }
 
   ngOnInit() {
   }
 
   login() {
-    // this.router.navigate(['/tabs']);
-    alert('login');
-  }
+    if (this.username = this.user[0].username) {
+      alert('login');
+    }else{
+      alert('Invalid username')
+    };  
+  };
 
   signup() {
     alert('signup');
