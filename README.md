@@ -6,3 +6,8 @@ It is an ionic based web-application for an ABC restaurant. It utilizes Angular 
 # To start the project:
 * cd to the particular directory
 *  " ionic serve -l" 
+
+# steps from the beginning:
+1. install ionic in your PC: "npm install -g @ionic/cli"
+2. start a new project: e.g: ionic start ..(app name) ..(templet)
+"ionic start myApp tabs"
