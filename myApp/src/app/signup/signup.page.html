@@ -1,0 +1,16 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content >
+  <ion-grid fixed>
+    <h1 id="centralize">Signup</h1>
+    <ion-input [(ngModel)]='firstname' placeholder="firstname" type="text"></ion-input><hr>
+    <ion-input [(ngModel)]='lastname' placeholder="lastname" type="text"></ion-input><hr>
+    <ion-input [(ngModel)]='email' placeholder="email" type="email"></ion-input><hr>
+    <ion-input [(ngModel)]='username' placeholder="Username" type="text"></ion-input><hr>
+    <ion-input [(ngModel)]='password' placeholder="Password" type="password"></ion-input><hr>
+    <ion-button (click)="register()">Register</ion-button>
+    <p id="centralize" >Already have an account! <a (click)='login()'>Login</a></p>
+  </ion-grid>
+</ion-content>

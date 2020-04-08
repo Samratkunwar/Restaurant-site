@@ -1,27 +1,13 @@
 <ion-header>
-  <!-- <ion-toolbar>
-    <ion-title style="text-align: center;"></ion-title>Login</ion-title>
-  </ion-toolbar> -->
+
 </ion-header>
 
 <ion-content>
-  <ion-grid>
-    <h1 align="center">Login</h1>
-    <ion-list>
-    <ion-item>
-      <ion-input [(ngModel)]="username" placeholder="Username" type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input [(ngModel)]="password" placeholder="Password" type="password"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-button (click)='login()'>Login</ion-button>
-    </ion-item>
-    <ion-item>
-      <h5>New to the app! <a (click)="signup()">SignUp</a></h5>
-    </ion-item>
-  </ion-list>
+  <ion-grid fixed>
+    <h1 id="centralize">Login</h1><hr>
+    <ion-input [(ngModel)]='username' placeholder="Username" type="text"></ion-input><hr>
+    <ion-input [(ngModel)]='password' placeholder="Password" type="password"></ion-input><hr>
+    <ion-button (click)="login()">Login</ion-button>
+    <p id="centralize" >Don't have an account! <a (click)='signup()'>SignUp</a></p>
   </ion-grid>
-  
-  
 </ion-content>

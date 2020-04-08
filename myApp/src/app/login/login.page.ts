@@ -18,6 +18,7 @@ export class LoginPage implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit() {
+  
   }
 
   login() {
@@ -30,7 +31,7 @@ export class LoginPage implements OnInit {
   }
 
   signup(){
-    alert('signup!');
+    this.router.navigateByUrl('signup');
   }
 
 }
