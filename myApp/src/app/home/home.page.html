@@ -1,15 +1,41 @@
-<ion-header [translucent]="true">
+<ion-header >
   <ion-toolbar>
     <ion-title align="center">
       Home
     </ion-title>
-    <ion-button (click)="logout()">Logout</ion-button>
   </ion-toolbar>
 </ion-header>
 
+<ion-content>
+  <div class="navigation">
+    <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+    <label for="navi-toggle" class="navigation__button">
+      <span class="navigation__icon">&nbsp;</span>
+    </label>
+    <div class="navigation__background">&nbsp;</div>
+    <nav class="navigation__nav">
+      <ul class="navigation__list">
+        <li class="navigation__item"><a href="#" class="navigation__link"><span>01.</span> Home</a></li>
+        <li class="navigation__item"><a href="#" class="navigation__link"><span>02.</span> Profile</a></li>
+        <li class="navigation__item"><a href="#" class="navigation__link"><span>03.</span> Cart</a></li>
+        <li class="navigation__item"><a href="#" (click)="logout()" class="navigation__link"><span>04.</span> Logout</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <ion-list>
+    <ion-item>1</ion-item>
+    <ion-item>2</ion-item>
+    <ion-item>3</ion-item>
+    <ion-item>4</ion-item>
+    <ion-item>5</ion-item>
+  </ion-list>
+</ion-content>
+<!-- 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
+      <ion-button (click)="logout()">Logout</ion-button>
       <ion-title size="large">Home</ion-title>
     </ion-toolbar>
   </ion-header>
@@ -18,4 +44,4 @@
     <strong>Ready to create an app?</strong>
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
   </div>
-</ion-content>
+</ion-content> -->
