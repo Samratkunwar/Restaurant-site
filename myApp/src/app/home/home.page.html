@@ -23,12 +23,8 @@
     </nav>
   </div>
 
-  <ion-list>
-    <ion-item>1</ion-item>
-    <ion-item>2</ion-item>
-    <ion-item>3</ion-item>
-    <ion-item>4</ion-item>
-    <ion-item>5</ion-item>
+  <ion-list *ngFor="let product of products, index as i">
+    <ion-item (click)="checkProd(i)">{{product.name}}</ion-item>
   </ion-list>
 </ion-content>
 <!-- 

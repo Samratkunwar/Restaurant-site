@@ -8,8 +8,7 @@ import { Router } from '@angular/router';
 })
 export class SignupPage implements OnInit {
 
-  firstname : string;
-  lastname  : string;
+  compName : string;
   email     : string;
   username  : string;
   password  : string;
@@ -20,8 +19,7 @@ export class SignupPage implements OnInit {
   }
 
   register() {
-    let firstname = this.firstname;
-    let lastname = this.lastname;
+    let compName = this.compName;
     let email = this.email;
     let username = this.username;
     let password = this.password;
