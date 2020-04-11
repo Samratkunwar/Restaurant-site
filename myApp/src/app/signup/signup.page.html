@@ -1,31 +1,32 @@
 <ion-header>
-
 </ion-header>
 
-<ion-content >
+<ion-content class="signup" >
   <ion-grid fixed>
-    <h1 id="centralize">Signup</h1>
-    <ion-input [(ngModel)]='compName' placeholder="Company Name" type="text"></ion-input><hr>
-    <ion-input [(ngModel)]='email' placeholder="email" type="email"></ion-input><hr>
-    <ion-input [(ngModel)]='username' placeholder="Username" type="text"></ion-input><hr>
-    <ion-input [(ngModel)]='password' placeholder="Password" type="password"></ion-input><hr>
-    <ion-radio-group>
+    <h1 class="signup__header" >Signup</h1>
+    <ion-input class="signup__inputField" [(ngModel)]='compName' placeholder="Company Name" type="text"></ion-input><hr>
+    <ion-input class="signup__inputField" [(ngModel)]='email' placeholder="email" type="email"></ion-input><hr>
+    <ion-input class="signup__inputField" [(ngModel)]='username' placeholder="Username" type="text"></ion-input><hr>
+    <ion-input class="signup__inputField" [(ngModel)]='password' placeholder="Password" type="password"></ion-input><hr>
+    
+    <ion-radio-group >
       <ion-list-header>
-        <ion-label>Business Type</ion-label>
+        <ion-label class="signup__header">Business Type</ion-label>
       </ion-list-header>
 
-      <ion-item>
+      <ion-item class="signup__radio">
         <ion-label>Restaurant</ion-label>
         <ion-radio vlaue="btype"></ion-radio>
       </ion-item>
 
-      <ion-item>
+      <ion-item class="signup__radio">
         <ion-label>Supplier</ion-label>
         <ion-radio vlaue="btype"></ion-radio>
       </ion-item>
       
     </ion-radio-group>
-    <ion-button (click)="register()">Register</ion-button>
-    <p id="centralize" >Already have an account! <a (click)='login()'>Login</a></p>
+
+    <ion-button class="signup__button" expand="block" (click)="register()">Register</ion-button>
+    <p class="signup__link" >Already have an account! <a (click)='login()'>Login</a></p>
   </ion-grid>
 </ion-content>

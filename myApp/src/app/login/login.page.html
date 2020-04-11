@@ -1,13 +1,13 @@
 <ion-header>
-
+  <ion-title>Login</ion-title>
 </ion-header>
 
-<ion-content>
+<ion-content class="login">
   <ion-grid fixed>
-    <h1 id="centralize">Login</h1><hr>
-    <ion-input [(ngModel)]='username' placeholder="Username" type="text"></ion-input><hr>
-    <ion-input [(ngModel)]='password' placeholder="Password" type="password"></ion-input><hr>
-    <ion-button (click)="login()">Login</ion-button>
-    <p id="centralize" >Don't have an account! <a (click)='signup()'>SignUp</a></p>
+    <h1 class="login__header">Login</h1><hr>
+    <ion-input class="login__inputField" [(ngModel)]='username' placeholder="Username" type="text"></ion-input><hr>
+    <ion-input class="login__inputField" [(ngModel)]='password' placeholder="Password" type="password"></ion-input><hr>
+    <ion-button class="login__button" expand="block" (click)="login()">Login</ion-button>
+    <p class="login__link" >Don't have an account! <a (click)='signup()'>SignUp</a></p>
   </ion-grid>
 </ion-content>
