@@ -11,11 +11,11 @@
     <ion-card>
       <img src="../../assets/pics/pic1.jpg" />
       <ion-card-header>
-        <ion-input [(ngModel)]="name" type="text"></ion-input>
+        <ion-input [(ngModel)]="item_name" type="text"></ion-input>
       </ion-card-header>
       <ion-card-content>
-        <ion-input [(ngModel)]="price" type="text"></ion-input> 
-        <ion-input [(ngModel)]="quantity" type="text"></ion-input>
+        <ion-input [(ngModel)]="item_price" type="text"></ion-input> 
+        <ion-input [(ngModel)]="item_quantity" type="text"></ion-input>
         <ion-button (click)="prodChange()">Done</ion-button>
       </ion-card-content>
     </ion-card>
@@ -26,13 +26,14 @@
     <ion-card>
       <img src="../../assets/pics/pic1.jpg" />
       <ion-card-header>
-        <ion-card-title>{{name}}</ion-card-title>
-        <ion-card-subtitle>Price: ${{price}}/ pcs    Quantity: {{quantity}}</ion-card-subtitle>
+        <ion-card-title>{{item_name}}</ion-card-title>
+        <ion-card-subtitle>Price: ${{item_price}}/ pcs    Quantity: {{item_quantity}}</ion-card-subtitle>
+        <ion-input type="hidden" [(ngModel)]="organization"></ion-input>
       </ion-card-header>
 
       <ion-card-content>
-        <ion-input  Placeholder="Order Quantity"></ion-input>
-        <ion-button (click)="order()">Order</ion-button>
+        <ion-input [(ngModel)]="item_amount" Placeholder="Order Quantity"></ion-input>
+        <ion-button (click)="addToCart()">Add To Cart</ion-button>
       </ion-card-content>
     </ion-card>
   </ion-list>

@@ -11,10 +11,11 @@ export class ProductsPage implements OnInit {
 
   constructor(private modalController: ModalController) { }
 
-  name: string;
-  price: number;
-  quantity: number;
-  amount: number;
+  item_name: string;
+  organization: string;
+  item_price: number;
+  item_quantity: number;
+  item_amount: number = 0;
   organization_type: string;
   edit: boolean
 
@@ -28,14 +29,14 @@ export class ProductsPage implements OnInit {
 
   // Restaurants functions
 
-  order() {
+  addToCart() {
     let orders = [];
-    let cost = this.price * this.amount;
-
-    orders['name'] = this.name;
-    orders['amount'] = this.amount;
-    orders['cost'] = cost;
-
+    let cost = this.item_price * this.item_amount;
+    orders['organization'] = this.organization
+    orders['item_name'] = this.item_name;
+    orders['item_amount'] = this.item_amount;
+    orders['total_cost'] = cost;
+    
     this.modalController.dismiss(orders);
   }
 
@@ -44,9 +45,10 @@ export class ProductsPage implements OnInit {
   prodChange() {
 
     let edited_data = []
-    edited_data["name"] = this.name;    
-    edited_data["price"] = this.price;   
-    edited_data["quantity"] = this.quantity;
+    edited_data["organization"] = this.organization;
+    edited_data["item_name"] = this.item_name; 
+    edited_data["item_price"] = this.item_price;   
+    edited_data["item_quantity"] = this.item_quantity;
 
     this.modalController.dismiss(edited_data);
   }

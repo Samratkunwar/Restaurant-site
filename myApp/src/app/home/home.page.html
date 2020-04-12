@@ -22,7 +22,7 @@
  
   <ion-item-sliding *ngFor="let product of products; index as i">
     <ion-item>
-      {{product.name}}
+      {{product.item_name}}
     </ion-item>
     <ion-item-options side="end" *ngIf="status">
       <ion-item-option ion-button (click)="editProd(i)">Edit</ion-item-option>

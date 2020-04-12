@@ -14,10 +14,10 @@ export class HomePage {
   organization_type: string;
   status: boolean;
   products= [
-    { name: "item 1", price: 20, quantity: 20},
-    { name: "item 2", price: 30, quantity: 30},
-    { name: "item 3", price: 40, quantity: 20},
-    { name: "item 4", price: 50, quantity: 20},
+    { organization:"Restaurant 1", item_name: "item 1", item_price: 20, item_quantity: 20},
+    { organization:"Restaurant 2", item_name: "item 2", item_price: 30, item_quantity: 30},
+    { organization:"Restaurant 3", item_name: "item 3", item_price: 40, item_quantity: 20},
+    { organization:"Restaurant 4", item_name: "item 4", item_price: 50, item_quantity: 20},
   ]
 
   constructor(public modalController: ModalController ,private router: Router) {}
@@ -40,20 +40,22 @@ export class HomePage {
     const modal = await this.modalController.create({
       component: ProductsPage,
       componentProps: {
-        'organization_type' : this.organization_type, 
-        'name' : this.products[i].name,
-        'price': this.products[i].price,
-        'quantity': this.products[i].quantity
+        'organization_type' : this.organization_type,
+        'organization' : this.products[i].organization,
+        'item_name' : this.products[i].item_name,
+        'item_price': this.products[i].item_price,
+        'item_quantity': this.products[i].item_quantity
       }
     });
     modal.onDidDismiss().then((edited_data) => {
       let nc = edited_data.data;
-      if ((nc['name'] == undefined) && (nc['price'] == undefined) && (nc['quantity'] == undefined)) {
+      if ((nc['item_name'] == undefined) && (nc['item_price'] == undefined) && (nc['item_quantity'] == undefined)) {
 
       } else {
-        this.products[i].name = nc['name'];
-        this.products[i].price = nc['price'];
-        this.products[i].quantity = nc['quantity'];
+        this.products[i].organization = nc['organization'];
+        this.products[i].item_name = nc['item_name'];
+        this.products[i].item_price = nc['item_price'];
+        this.products[i].item_quantity = nc['item_quantity'];
       }
     })
     return await modal.present();
@@ -70,11 +72,21 @@ export class HomePage {
       component: ProductsPage,
       componentProps: {
         'organization_type' : this.organization_type,
-        'name' : this.products[i].name,
-        'price': this.products[i].price,
-        'quantity': this.products[i].quantity
+        'organization': this.products[i].organization,
+        'item_name' : this.products[i].item_name,
+        'item_price': this.products[i].item_price,
+        'item_quantity': this.products[i].item_quantity
       }
     });
+    modal.onDidDismiss().then((order) => {
+      let no = order.data;
+      if (no['item_amount'] == 0) {
+
+      } else {
+        console.log(no);
+        alert("added to cart");
+      }
+    })
     return await modal.present();
   };
   
