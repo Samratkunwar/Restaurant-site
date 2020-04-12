@@ -30,12 +30,22 @@ export class ProductsPage implements OnInit {
   // Restaurants functions
 
   addToCart() {
+
+    // get the present days date
+    let date = new Date();
+    let  year = date.getFullYear().toString()
+    let  month = date.getMonth().toString()
+    let  day = date.getDate().toString()
+
+    let order_date = year + "-" + month + "-" + day;
+
     let orders = [];
     let cost = this.item_price * this.item_amount;
     orders['organization'] = this.organization
     orders['item_name'] = this.item_name;
     orders['item_amount'] = this.item_amount;
     orders['total_cost'] = cost;
+    orders['order_date'] = order_date;
     
     this.modalController.dismiss(orders);
   }

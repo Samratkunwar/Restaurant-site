@@ -25,8 +25,8 @@
       {{product.item_name}}
     </ion-item>
     <ion-item-options side="end" *ngIf="status">
-      <ion-item-option ion-button (click)="editProd(i)">Edit</ion-item-option>
-      <ion-item-option ion-button color="danger" (click)="deleteProd(i)">Delete</ion-item-option>
+      <ion-item-option ion-button (click)="editProd(i)"><ion-icon name="create"></ion-icon></ion-item-option>
+      <ion-item-option ion-button color="danger" (click)="deleteProd(i)"><ion-icon name="close-circle"></ion-icon></ion-item-option>
     </ion-item-options>
     <ion-item-options side="end" *ngIf="!status">
       <ion-item-option ion-button (click)="orderProd(i)">Order</ion-item-option>
