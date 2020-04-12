@@ -61,9 +61,11 @@ export class HomePage {
     return await modal.present();
   };
 
-  async deleteProd() {
-
-  }
+  deleteProd(i) {
+    if (confirm("Delete " + this.products[i].item_name)) {
+      this.products.splice(i, 1);
+    }
+  };
   
 
   // Functions for Organization_type: 'Restaurant'
