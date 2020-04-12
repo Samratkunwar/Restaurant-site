@@ -1,12 +1,9 @@
 <ion-header >
-  <ion-toolbar>
-    <ion-title align="center">
-      Home
-    </ion-title>
-  </ion-toolbar>
+  <ion-title>Home</ion-title>>
 </ion-header>
 
 <ion-content>
+  <div class="icon"><ion-icon name="home-outline" ></ion-icon></div><br>
   <div class="navigation">
     <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
     <label for="navi-toggle" class="navigation__button">
@@ -22,22 +19,17 @@
       </ul>
     </ion-nav>
   </div>
-
-  <ion-list *ngFor="let product of products, index as i">
-    <ion-item (click)="checkProd(i)">{{product.name}}</ion-item>
-  </ion-list>
+ 
+  <ion-item-sliding *ngFor="let product of products; index as i">
+    <ion-item>
+      {{product.name}}
+    </ion-item>
+    <ion-item-options side="end" *ngIf="status">
+      <ion-item-option ion-button (click)="editProd(i)">Edit</ion-item-option>
+      <ion-item-option ion-button color="danger" (click)="deleteProd(i)">Delete</ion-item-option>
+    </ion-item-options>
+    <ion-item-options side="end" *ngIf="!status">
+      <ion-item-option ion-button (click)="orderProd(i)">Order</ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
 </ion-content>
-<!-- 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-button (click)="logout()">Logout</ion-button>
-      <ion-title size="large">Home</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content> -->

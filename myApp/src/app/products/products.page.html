@@ -6,9 +6,35 @@
 </ion-header>
 
 <ion-content>
-  <ion-list style="text-align: center;">
-    <img src="../../assets/icon/favicon.png">
-    <ion-input type="file"></ion-input>
-    <ion-item>{{name}}</ion-item>
+  
+  <ion-list *ngIf="edit">
+    <ion-card>
+      <img src="../../assets/pics/pic1.jpg" />
+      <ion-card-header>
+        <ion-input [(ngModel)]="name" type="text"></ion-input>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-input [(ngModel)]="price" type="text"></ion-input> 
+        <ion-input [(ngModel)]="quantity" type="text"></ion-input>
+        <ion-button (click)="prodChange()">Done</ion-button>
+      </ion-card-content>
+    </ion-card>
   </ion-list>
+
+
+  <ion-list *ngIf="!edit">
+    <ion-card>
+      <img src="../../assets/pics/pic1.jpg" />
+      <ion-card-header>
+        <ion-card-title>{{name}}</ion-card-title>
+        <ion-card-subtitle>Price: ${{price}}/ pcs    Quantity: {{quantity}}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-input  Placeholder="Order Quantity"></ion-input>
+        <ion-button (click)="order()">Order</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
 </ion-content>
