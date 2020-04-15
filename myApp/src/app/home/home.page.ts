@@ -229,22 +229,4 @@ export class HomePage {
     await alert.present();
   }
 
-    // // Logout as a user
-    // logout() {
-    //   this.router.navigateByUrl('login');
-    // }
-
-    // //navigate to profile
-    // goToProfile() {
-    //   this.router.navigateByUrl('profile');
-    // }
-    // //navigate back to home
-    // goToHome() {
-    //   this.router.navigateByUrl('home');
-    // }
-    // // navigate to cart
-    // goToCart() {
-    //   this.router.navigateByUrl('cart');
-    // }
-
 }

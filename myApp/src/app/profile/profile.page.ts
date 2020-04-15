@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -13,7 +14,7 @@ export class ProfilePage implements OnInit {
   Ctype: string  = "Restaurant";
 
  
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.showChart();
@@ -55,6 +56,24 @@ export class ProfilePage implements OnInit {
           }
         }
     });     
+  }
+
+  // Logout as a user
+  logout() {
+    this.router.navigateByUrl('login');
+  }
+
+  //navigate to profile
+  goToProfile() {
+    this.router.navigateByUrl('profile');
+  }
+  //navigate back to home
+  goToHome() {
+    this.router.navigateByUrl('home');
+  }
+  // navigate to cart
+  goToCart() {
+    this.router.navigateByUrl('cart');
   }
 
 }

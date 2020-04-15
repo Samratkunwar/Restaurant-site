@@ -1,20 +1,49 @@
 <ion-header>
-  <!-- <ion-title>Profile</ion-title> -->
-  <app-nav-menu></app-nav-menu>
+
+  <ion-title>Profile</ion-title>
+
+  <ion-content>
+      <ion-fab horizontal="end" vertical="top" slot="fixed">
+    <ion-fab-button color="light">
+      <ion-icon name="caret-back"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button (click)="logout()" color="light">
+        <ion-icon name="log-out"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="goToCart()" color="light">
+        <ion-icon name="cart"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="goToProfile()" color="light">
+        <ion-icon name="person"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="goToHome()" color="light">
+        <ion-icon name="home"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab> 
+    
+  </ion-content>
+  
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <img src="../../assets/pics/pic1.jpg" />
-    <ion-card-header>
-      <ion-card-subtitle>{{Ctype}}</ion-card-subtitle>
-      <ion-card-title>{{Cname}}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      Email: {{Cemail}} 
-    </ion-card-content>
-  </ion-card>
+  <div class="spacing">
 
+    <ion-card>
+      <img src="../../assets/pics/pic1.jpg" />
+      <ion-card-header>
+        <ion-card-subtitle>{{Ctype}}</ion-card-subtitle>
+        <ion-card-title>{{Cname}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Email: {{Cemail}} 
+      </ion-card-content>
+    </ion-card>
+    
+  </div>
+    
   <canvas id="myChart" width="200" height="200"></canvas>
-
-</ion-content>
+    
+  </ion-content>
+  

@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { CartPageRoutingModule } from './cart-routing.module';
 
 import { CartPage } from './cart.page';
-import { NavMenuPage } from '../nav-menu/nav-menu.page';
+
 
 @NgModule({
   imports: [
@@ -16,7 +16,7 @@ import { NavMenuPage } from '../nav-menu/nav-menu.page';
     IonicModule,
     CartPageRoutingModule
   ],
-  declarations: [CartPage, NavMenuPage ],
-  entryComponents: [NavMenuPage]
+  declarations: [CartPage ],
+  entryComponents: []
 })
 export class CartPageModule {}

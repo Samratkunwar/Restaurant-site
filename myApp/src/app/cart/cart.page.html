@@ -1,10 +1,38 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>cart</ion-title>
-  </ion-toolbar>
-  <app-nav-menu></app-nav-menu>
+  
+  <ion-title>cart</ion-title>
+    
 </ion-header>
 
 <ion-content>
+  
+  <ion-fab horizontal="end" vertical="top" slot="fixed">
+    <ion-fab-button color="light">
+      <ion-icon name="caret-back"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button (click)="logout()" color="light">
+        <ion-icon name="log-out"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="goToCart()" color="light">
+        <ion-icon name="cart"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="goToProfile()" color="light">
+        <ion-icon name="person"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="goToHome()" color="light">
+        <ion-icon name="home"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab> 
 
+  <div class="spacing">
+
+    <ion-list *ngFor="let item of cart, index as i">
+      <ion-item>
+        {{item.item_name}}
+      </ion-item>
+    </ion-list>
+  </div>
+    
 </ion-content>

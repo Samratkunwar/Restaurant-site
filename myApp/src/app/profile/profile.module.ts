@@ -8,7 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { ProfilePageRoutingModule } from './profile-routing.module';
 
 import { ProfilePage } from './profile.page';
-import { NavMenuPage } from '../nav-menu/nav-menu.page'
+
 
 @NgModule({
   imports: [
@@ -17,7 +17,7 @@ import { NavMenuPage } from '../nav-menu/nav-menu.page'
     IonicModule,
     ProfilePageRoutingModule,
   ],
-  declarations: [ProfilePage, NavMenuPage],
-  entryComponents: [ NavMenuPage ]
+  declarations: [ProfilePage],
+  entryComponents: [ ]
 })
 export class ProfilePageModule {}
