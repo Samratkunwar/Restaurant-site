@@ -1,63 +1,21 @@
-<ion-header >
-  <!-- <ion-title class="title">Home</ion-title> -->
-  <br>
-  
-  
-  <!-- Navigation menu -->
-  <ion-content>
-    <ion-fab horizontal="end" vertical="top" slot="fixed">
-      <ion-fab-button color="light">
-        <ion-icon name="menu"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-list side="start">
-        <ion-fab-button (click)="logout()" color="light">
-          <ion-icon name="log-out"></ion-icon>
-        </ion-fab-button>
-        <ion-fab-button (click)="goToCart()" color="light">
-          <ion-icon name="cart"></ion-icon>
-        </ion-fab-button>
-        <ion-fab-button (click)="goToProfile()" color="light">
-          <ion-icon name="person"></ion-icon>
-        </ion-fab-button>
-        <ion-fab-button (click)="goToHome()" color="light">
-          <ion-icon name="home"></ion-icon>
-        </ion-fab-button>
-      </ion-fab-list>
-    </ion-fab> 
-  </ion-content>
-  
-  
-  
+<ion-header>  
+ <br>
+ <app-nav-menu></app-nav-menu>
 </ion-header>
 
 
 <ion-content>
-
-  <ion-card *ngFor="let product of products, index as i">
-    <ion-img [src]="image"></ion-img>
-    <ion-card-header>
-      <!-- <ion-img [src]="image"></ion-img> -->
-      <ion-card-subtitle>{{product.organization}}</ion-card-subtitle>
-      <ion-card-title>{{product.item_name}}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      price: ${{product.item_price}}/pcs || {{product.item_quantity}} pcs
-      <ion-button (click)="showMenu(i)"><ion-icon name="ellipsis-vertical-outline"></ion-icon></ion-button>
-    </ion-card-content>
-  </ion-card>
-    
-  
-
-  <!-- <ion-item-sliding *ngFor="let product of products; index as i">
-    <ion-item>
-      {{product.item_name}}
-    </ion-item>
-    <ion-item-options side="end" *ngIf="status">
-      <ion-item-option ion-button (click)="editProd(i)"><ion-icon name="create"></ion-icon></ion-item-option>
-      <ion-item-option ion-button color="danger" (click)="deleteProd(i)"><ion-icon name="close-circle"></ion-icon></ion-item-option>
-    </ion-item-options>
-    <ion-item-options side="end" *ngIf="!status">
-      <ion-item-option ion-button (click)="orderProd(i)">Order</ion-item-option>
-    </ion-item-options>
-  </ion-item-sliding>
-</ion-content> -->
+  <div class="page_contents">
+    <ion-card *ngFor="let product of products, index as i">
+      <ion-img [src]="image"></ion-img>
+      <ion-card-header>
+        <ion-card-subtitle>{{product.organization}}</ion-card-subtitle>
+        <ion-card-title>{{product.item_name}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        price: ${{product.item_price}}/pcs || {{product.item_quantity}} pcs
+        <ion-icon class="ellipsis" (click)="showMenu(i)" name="ellipsis-vertical"></ion-icon>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

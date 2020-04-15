@@ -25,6 +25,10 @@ const routes: Routes = [
     path: 'products',
     loadChildren: () => import('./products/products.module').then( m => m.ProductsPageModule)
   },
+  {
+    path: 'nav-menu',
+    loadChildren: () => import('./nav-menu/nav-menu.module').then( m => m.NavMenuPageModule)
+  },
 
 ];
 

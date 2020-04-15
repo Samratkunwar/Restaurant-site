@@ -64,6 +64,7 @@ export class ProductsPage implements OnInit {
   }
 
   dismiss() {
-    this.modalController.dismiss();
+    let a = "no changes"
+    this.modalController.dismiss(a);
   }
 }

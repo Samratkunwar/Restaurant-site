@@ -1,21 +1,28 @@
 <ion-header>
   <ion-toolbar>
-    <ion-button (click)="dismiss()">X</ion-button>
-    <ion-title style="text-align: center;">products</ion-title>
+      <ion-icon class="back-button-icon" (click)="dismiss()" name="close" slot="start"></ion-icon>
+      <ion-title >Product</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   
+  <!-- edit option in the modal when supplier user is logged in -->
   <ion-list *ngIf="edit">
     <ion-card>
       <img src="../../assets/pics/pic1.jpg" />
-      <ion-input class="pic__button" type="file"></ion-input>
+      <!-- <ion-input class="pic__button" type="file"></ion-input> -->
       <ion-card-header>
+        <ion-label>Item Name:</ion-label>
         <ion-input [(ngModel)]="item_name" type="text"></ion-input>
       </ion-card-header>
+
       <ion-card-content>
-        <ion-input [(ngModel)]="item_price" type="text"></ion-input> 
+
+        <ion-label>Price:</ion-label>
+        <ion-input [(ngModel)]="item_price" type="text"></ion-input>
+
+        <ion-label>Quantity:</ion-label> 
         <ion-input [(ngModel)]="item_quantity" type="text"></ion-input>
         <ion-button (click)="prodChange()">Done</ion-button>
       </ion-card-content>
@@ -23,6 +30,7 @@
   </ion-list>
 
 
+  <!-- order option when restaurnat/wholesalers owner is logged in -->
   <ion-list *ngIf="!edit">
     <ion-card>
       <img src="../../assets/pics/pic1.jpg" />
