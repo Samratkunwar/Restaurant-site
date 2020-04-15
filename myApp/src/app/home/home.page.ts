@@ -32,8 +32,8 @@ export class HomePage {
 
   ngOnInit() {
 
-    // this.organization_type = "Supplier";
-    this.organization_type = "Restaurant";
+    this.organization_type = "Supplier";
+    // this.organization_type = "Restaurant";
 
     if (this.organization_type == "Supplier") {
       this.status = true;
