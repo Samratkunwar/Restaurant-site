@@ -32,8 +32,8 @@ export class HomePage {
 
   ngOnInit() {
 
-    this.organization_type = "Supplier";
-    // this.organization_type = "Restaurant";
+    // this.organization_type = "Supplier";
+    this.organization_type = "Restaurant";
 
     if (this.organization_type == "Supplier") {
       this.status = true;
@@ -114,8 +114,9 @@ export class HomePage {
         if (no['item_amount'] == 0) {
           
         } else {
+
           console.log(no);
-          alert("added to cart");
+          this.displayAddToCart();
         }
       }
     })
@@ -199,7 +200,7 @@ export class HomePage {
 
       /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
      //                                                                                                             //
-    //                                  Allert Message                                                             //
+    //                                  Alert Message                                                             //
    //                                                                                                             //
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -229,4 +230,20 @@ export class HomePage {
     await alert.present();
   }
 
+  // function to display alert message on adding item to cart
+  async displayAddToCart() {
+    const alert = await this.alertController.create({
+      // header : 'Add To Cart!',
+      message : 'Item Added to Cart',
+      buttons : [
+        {
+          text: 'Okay',
+          handler: () => {
+            console.log('Added to Cart');
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
 }

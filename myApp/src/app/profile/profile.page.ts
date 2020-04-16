@@ -76,4 +76,7 @@ export class ProfilePage implements OnInit {
     this.router.navigateByUrl('cart');
   }
 
+  order_status() {
+    alert('Comeback later');
+  }
 }

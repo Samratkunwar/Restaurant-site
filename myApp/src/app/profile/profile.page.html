@@ -28,18 +28,27 @@
 </ion-header>
 
 <ion-content>
+
+  
   <div class="spacing">
 
-    <ion-card>
-      <img src="../../assets/pics/pic1.jpg" />
-      <ion-card-header>
-        <ion-card-subtitle>{{Ctype}}</ion-card-subtitle>
-        <ion-card-title>{{Cname}}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        Email: {{Cemail}} 
-      </ion-card-content>
-    </ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col >
+          <img class="profile_pic" src="../../assets/pics/pic1.jpg" />
+          <h5>{{Cname}}</h5>
+        </ion-col>
+
+        <ion-col>
+          <h6>Type: {{Ctype}}</h6>
+          <h6>Email: {{Cemail}}</h6>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+    <ion-button class="status_button" (click)="order_status()">Order Status & Details</ion-button>
+
+
     
   </div>
     
