@@ -28,11 +28,16 @@
 
   <div class="spacing">
 
-    <ion-list *ngFor="let item of cart, index as i">
+    <ion-item-sliding *ngFor="let item of cart, index as i">
       <ion-item>
         {{item.item_name}}
       </ion-item>
-    </ion-list>
+      <ion-item-options side="end">
+        <ion-item-option ion-button (click)="edititem(i)"><ion-icon name="create"></ion-icon></ion-item-option>
+        <ion-item-option ion-button color="danger" (click)="deleteitem(i)"><ion-icon name="trash-bin"></ion-icon></ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
   </div>
 
    <ion-item class="costLabel"> 

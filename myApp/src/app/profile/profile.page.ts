@@ -9,10 +9,13 @@ import { Router } from '@angular/router';
 })
 export class ProfilePage implements OnInit {
 
-  Cname : string = "Sizzler cafe";
-  Cemail: string = "siz@s.com";
-  Ctype: string  = "Restaurant";
-
+  Cname : string 
+  Cemail: string 
+  Ctype: string  
+  image: string
+  character = [
+    {Cname:"Sizzler cafe", Cemail:"siz@s.com", Ctype:"Restaurant", image :"../../assets/pics/pic1.jpg" }
+  ];
  
   constructor(private router: Router) { }
 
@@ -78,5 +81,9 @@ export class ProfilePage implements OnInit {
 
   order_status() {
     alert('Comeback later');
+  }
+
+  edit_profile() {
+
   }
 }

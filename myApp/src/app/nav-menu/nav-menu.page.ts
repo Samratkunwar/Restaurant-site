@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalController, ActionSheetController, AlertController } from '@ionic/angular';
+import { ProductsPage } from '../products/products.page';
 
 @Component({
   selector: 'app-nav-menu',
@@ -8,7 +10,12 @@ import { Router } from '@angular/router';
 })
 export class NavMenuPage implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(
+    public modalController: ModalController , 
+    private router: Router, 
+    public actionSheetController: ActionSheetController,
+    public alertController : AlertController 
+    ) { }
 
   
   ngOnInit() {
@@ -32,5 +39,17 @@ export class NavMenuPage implements OnInit {
     goToCart() {
       this.router.navigateByUrl('cart');
     }
+ 
+    // add item
+    async addItem() {
+      const modal = await this.modalController.create({
+        component: ProductsPage,
+        componentProps: {}
+      });
+      modal.onDidDismiss().then((new_data) => {
+        alert('item added')
+      })
+      return await modal.present();
+    };
 
 }

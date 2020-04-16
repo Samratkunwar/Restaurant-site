@@ -4,9 +4,17 @@
 
 <ion-content>
   <ion-fab horizontal="end" vertical="top" slot="fixed">
+
     <ion-fab-button color="light">
       <ion-icon name="caret-back"></ion-icon>
     </ion-fab-button>
+
+    <ion-fab-list side="bottom">
+      <ion-fab-button color="light">
+        <ion-icon (click)="addItem()" name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+
     <ion-fab-list side="start">
       <ion-fab-button (click)="logout()" color="light">
         <ion-icon name="log-out"></ion-icon>

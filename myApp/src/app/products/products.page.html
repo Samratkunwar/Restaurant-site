@@ -24,10 +24,11 @@
 
         <ion-label>Quantity:</ion-label> 
         <ion-input [(ngModel)]="item_quantity" type="text"></ion-input>
-        <ion-button class="cart_button" (click)="prodChange()">Done</ion-button>
       </ion-card-content>
     </ion-card>
+  
   </ion-list>
+
 
 
   <!-- order option when restaurnat/wholesalers owner is logged in -->
@@ -42,9 +43,16 @@
 
       <ion-card-content>
         <ion-input [(ngModel)]="item_amount" Placeholder="Order Quantity"></ion-input>
-        <ion-button class="cart_button" (click)="addToCart()">Add To Cart</ion-button>
       </ion-card-content>
     </ion-card>
+    
   </ion-list>
 
+  <ion-item *ngIf="edit">
+    <ion-button class="cart_button" (click)="prodChange()">Done</ion-button>
+  </ion-item>
+
+  <ion-item *ngIf="!edit">
+    <ion-button class="cart_button" (click)="addToCart()">Add To Cart</ion-button>
+  </ion-item>
 </ion-content>

@@ -81,4 +81,12 @@ export class CartPage implements OnInit {
     await alert.present();
   }
 
+  edititem(i) {
+    alert('edit');
+  }
+
+  deleteitem(i) {
+    alert('delete');
+  }
+
 }

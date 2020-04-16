@@ -27,26 +27,31 @@
   
 </ion-header>
 
-<ion-content>
+<ion-content class="profile">
 
   
-  <div class="spacing">
+  <div class="profile__spacing">
 
-    <ion-grid>
+    <ion-grid *ngFor="let c of character, indes as i">
       <ion-row>
         <ion-col >
-          <img class="profile_pic" src="../../assets/pics/pic1.jpg" />
-          <h5>{{Cname}}</h5>
+          <ion-avatar class="profile__pic">
+            <ion-img [src]="c.image"></ion-img>
+          </ion-avatar>
+          <h5>{{c.Cname}}</h5>
         </ion-col>
 
         <ion-col>
-          <h6>Type: {{Ctype}}</h6>
-          <h6>Email: {{Cemail}}</h6>
+          <h6>Type: {{c.Ctype}}</h6>
+          <h6>Email: {{c.Cemail}}</h6>
+          
+          <ion-button fill="clear" (click)="edit_profile(i)">Edit Profile</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
     
-    <ion-button class="status_button" (click)="order_status()">Order Status & Details</ion-button>
+    
+    <ion-button class="profile__status-button" (click)="order_status()">Order Status & Details</ion-button>
 
 
     
