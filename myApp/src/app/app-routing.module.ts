@@ -29,6 +29,14 @@ const routes: Routes = [
     path: 'nav-menu',
     loadChildren: () => import('./nav-menu/nav-menu.module').then( m => m.NavMenuPageModule)
   },
+  {
+    path: 'payment',
+    loadChildren: () => import('./payment/payment.module').then( m => m.PaymentPageModule)
+  },
+  {
+    path: 'order-details',
+    loadChildren: () => import('./order-details/order-details.module').then( m => m.OrderDetailsPageModule)
+  },
 
 ];
 
