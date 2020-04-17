@@ -28,6 +28,7 @@ export class CartPage implements OnInit {
     } 
   }
 
+  // display alert message asking for confermation of order
   confirmOrder() {
     this.displayAlertMessage();
   }
@@ -81,10 +82,12 @@ export class CartPage implements OnInit {
     await alert.present();
   }
 
+  //function to edit the order in the cart
   edititem(i) {
     alert('edit');
   }
 
+  //function to delete the order in the cart
   deleteitem(i) {
     alert('delete');
   }

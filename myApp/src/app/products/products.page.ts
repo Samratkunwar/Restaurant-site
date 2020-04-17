@@ -63,6 +63,7 @@ export class ProductsPage implements OnInit {
     this.modalController.dismiss(edited_data);
   }
 
+  //when dismissed it sends a string to verify that nothing is changed
   dismiss() {
     let a = "no changes"
     this.modalController.dismiss(a);

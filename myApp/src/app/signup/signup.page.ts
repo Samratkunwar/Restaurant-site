@@ -18,6 +18,7 @@ export class SignupPage implements OnInit {
   ngOnInit() {
   }
 
+  //function to add the new user to the users database
   register() {
     let compName = this.compName;
     let email = this.email;
@@ -28,6 +29,7 @@ export class SignupPage implements OnInit {
     this.router.navigateByUrl('home');
   }
 
+  // function to navigate to the login page
   login() {
     this.router.navigateByUrl('login');
   }

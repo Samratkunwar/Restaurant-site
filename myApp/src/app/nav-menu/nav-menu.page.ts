@@ -40,7 +40,7 @@ export class NavMenuPage implements OnInit {
       this.router.navigateByUrl('cart');
     }
  
-    // add item
+    // function to add new items to the list by the app owner
     async addItem() {
       const modal = await this.modalController.create({
         component: ProductsPage,
