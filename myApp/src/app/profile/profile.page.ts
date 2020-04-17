@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { Router } from '@angular/router';
+import { ModalController, ActionSheetController, AlertController } from '@ionic/angular';
+import { AddItemPage } from '../add-item/add-item.page';
+// import { PhotoService } from '../services/photo.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,15 +12,18 @@ import { Router } from '@angular/router';
 })
 export class ProfilePage implements OnInit {
 
-  Cname : string 
-  Cemail: string 
-  Ctype: string  
-  image: string
+
   character = [
     {Cname:"Sizzler cafe", Cemail:"siz@s.com", Ctype:"Restaurant", image :"../../assets/pics/pic1.jpg" }
   ];
  
-  constructor(private router: Router) { }
+  constructor(
+    public modalController: ModalController , 
+    private router: Router, 
+    public actionSheetController: ActionSheetController,
+    public alertController : AlertController,
+    // public photoService: PhotoService 
+  ) { }
 
   ngOnInit() {
     this.showChart();
@@ -79,11 +85,45 @@ export class ProfilePage implements OnInit {
     this.router.navigateByUrl('cart');
   }
 
+  // function to check order status
   order_status() {
     alert('Comeback later');
   }
 
-  edit_profile() {
+ // function to update profile
+ async edit_profile(i) {
+  const modal = await this.modalController.create({
+    
+    component: AddItemPage,
+    componentProps: {
+      'Cname' : this.character[i].Cname, 
+      'Cemail':this.character[i].Cemail, 
+      'Ctype' :this.character[i].Ctype, 
+      'image' :this.character[i].image
+    }
+  });
+  modal.onDidDismiss().then((new_data) => {
+    
+    if (new_data == "no") {}
+    else {
 
-  }
+      let nc = new_data.data;
+      
+      if ((nc['Cname'] == undefined) && (nc['Cemail'] == undefined) && (nc['Ctype'] == undefined) && (nc['image'] == undefined)) {
+        
+      } else {
+        let x = this.character[i].image;        
+        this.character[i].Cname = nc['Cname'];
+        this.character[i].Cemail = nc['Cemail'];
+        this.character[i].Ctype = nc['Ctype'];
+        this.character[i].image = nc['image'];
+      
+      }
+    }
+
+  })
+  return await modal.present();
+};
+
 }
+
