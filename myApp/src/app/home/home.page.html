@@ -1,33 +1,21 @@
 <ion-header>  
- <br>
- <app-nav-menu></app-nav-menu>
+  <br>
+  <app-nav-menu></app-nav-menu>
 </ion-header>
 
+<br>
 
 <ion-content>
-  <div class="page_contents">
-    <ion-card *ngFor="let product of products, index as i">
-      <ion-card-header>
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              <ion-avatar class="item_pic">
-                <ion-img [src]="image"></ion-img>
-              </ion-avatar>
-            </ion-col>
-            <ion-col>
-              <ion-card-title>{{product.item_name}}</ion-card-title>
-              <ion-card-subtitle>{{product.organization}}</ion-card-subtitle>
-            </ion-col>
-          </ion-row>
-        </ion-grid>  
-      </ion-card-header>
-      
-      <ion-card-content>
-        price: ${{product.item_price}}/pcs || {{product.item_quantity}} pcs
-        <ion-icon class="ellipsis" (click)="showMenu(i)" name="ellipsis-vertical" slot="end"></ion-icon>
-      </ion-card-content>
-
-    </ion-card>
-  </div>
+  
+  <ion-card class="home__card" *ngFor="let product of products, index as i" (click)="showMenu(i)">
+  
+      <ion-img [src]="image"></ion-img>
+      <ion-avatar class="home__profile-pic">
+        <ion-img [src]="image"></ion-img>
+      </ion-avatar>
+      <p class="home__profile-pic__item-name">{{product.item_name}}</p>
+    
+  </ion-card>
+  
+  
 </ion-content>
