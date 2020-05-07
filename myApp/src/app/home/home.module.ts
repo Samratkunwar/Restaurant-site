@@ -6,13 +6,15 @@ import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
 import { ProductsPage } from '../products/products.page';
-import { NavMenuPage } from '../nav-menu/nav-menu.page';
+import { SharedModule } from '../shared.module';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
     RouterModule.forChild([
       {
         path: '',
@@ -20,7 +22,7 @@ import { NavMenuPage } from '../nav-menu/nav-menu.page';
       }
     ])
   ],
-  declarations: [HomePage, ProductsPage, NavMenuPage],
-  entryComponents: [ProductsPage, NavMenuPage ]
+  declarations: [HomePage, ProductsPage],
+  entryComponents: [ProductsPage]
 })
 export class HomePageModule {}

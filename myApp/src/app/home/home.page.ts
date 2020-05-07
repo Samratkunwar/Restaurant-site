@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductsPage } from '../products/products.page'
 import { ModalController, ActionSheetController, AlertController } from '@ionic/angular';
-import { empty } from 'rxjs';
+
 
 
 @Component({
