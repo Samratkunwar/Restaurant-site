@@ -8,8 +8,8 @@ import { IonicModule } from '@ionic/angular';
 import { ProfilePageRoutingModule } from './profile-routing.module';
 
 import { ProfilePage } from './profile.page';
-import { AddItemPage } from '../add-item/add-item.page';
-import { SharedModule } from '../shared.module';
+import { AddItemPage } from '../../add-item/add-item.page';
+import { SharedModule } from '../../shared.module';
 
 
 

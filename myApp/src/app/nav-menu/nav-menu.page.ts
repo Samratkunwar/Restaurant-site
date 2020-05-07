@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController, ActionSheetController, AlertController } from '@ionic/angular';
-import { ProductsPage } from '../products/products.page';
+import { ProductsPage } from '../home_components/products/products.page';
 
 @Component({
   selector: 'app-nav-menu',

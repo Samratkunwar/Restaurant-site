@@ -5,26 +5,26 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { 
     path: 'home', 
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
+    loadChildren: () => import('./home_components/home/home.module').then( m => m.HomePageModule)},
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./authentication_components/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'signup',
-    loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
+    loadChildren: () => import('./authentication_components/signup/signup.module').then( m => m.SignupPageModule)
   },
   {
     path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./authentication_components/profile/profile.module').then( m => m.ProfilePageModule)
   },
   {
     path: 'cart',
-    loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
+    loadChildren: () => import('./checkout_components/cart/cart.module').then( m => m.CartPageModule)
   },
   {
     path: 'products',
-    loadChildren: () => import('./products/products.module').then( m => m.ProductsPageModule)
+    loadChildren: () => import('./home_components/products/products.module').then( m => m.ProductsPageModule)
   },
   {
     path: 'nav-menu',
@@ -32,11 +32,11 @@ const routes: Routes = [
   },
   {
     path: 'payment',
-    loadChildren: () => import('./payment/payment.module').then( m => m.PaymentPageModule)
+    loadChildren: () => import('./checkout_components/payment/payment.module').then( m => m.PaymentPageModule)
   },
   {
     path: 'order-details',
-    loadChildren: () => import('./order-details/order-details.module').then( m => m.OrderDetailsPageModule)
+    loadChildren: () => import('./checkout_components/order-details/order-details.module').then( m => m.OrderDetailsPageModule)
   },
   {
     path: 'add-item',

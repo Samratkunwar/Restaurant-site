@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { Router } from '@angular/router';
 import { ModalController, ActionSheetController, AlertController } from '@ionic/angular';
-import { AddItemPage } from '../add-item/add-item.page';
+import { AddItemPage } from '../../add-item/add-item.page';
 // import { PhotoService } from '../services/photo.service';
 
 @Component({
