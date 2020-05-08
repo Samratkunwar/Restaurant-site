@@ -2,14 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
 import { IonicModule } from '@ionic/angular';
 
-import { ProfilePageRoutingModule } from './profile-routing.module';
-
 import { ProfilePage } from './profile.page';
-import { AddItemPage } from '../../add-item/add-item.page';
-import { SharedModule } from '../../shared.module';
+import { EditProfilePage } from '../edit-profile/edit-profile.page';
+import { SharedModule } from 'src/app/shared.module';
+
 
 
 
@@ -19,9 +17,14 @@ import { SharedModule } from '../../shared.module';
     FormsModule,
     IonicModule,
     SharedModule,
-    ProfilePageRoutingModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: ProfilePage
+      }
+    ])
   ],
-  declarations: [ProfilePage, AddItemPage],
-  entryComponents: [ AddItemPage]
+  declarations: [ProfilePage, EditProfilePage],
+  entryComponents: [ EditProfilePage]
 })
 export class ProfilePageModule {}

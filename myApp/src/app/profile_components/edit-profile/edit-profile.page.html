@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon class="back-button-icon" (click)="dismiss()" name="close" slot="start"></ion-icon>
+    <ion-title>Edit Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-label>
+      Company Name:
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="Cname"></ion-input>
+    <ion-label>
+      Cmpany Email:
+    </ion-label>
+    <ion-input type="text" [(ngModel)]="Cemail"></ion-input>
+    <ion-input type="hidden" [(ngModel)]="Ctype"></ion-input>
+    <ion-icon (click)="photoService.addNewToGallery()" name="camera"></ion-icon>  
+  </ion-list>
+
+  <!-- Display image clicked -->
+  <ion-grid>
+    <ion-row>
+    <ion-col size="6" 
+      *ngFor="let photo of photoService.photos; index as position">
+        <ion-img src="{{ photo.webviewPath }}"></ion-img>
+    </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-button class="done_Button" (click)="changeddata()">Done</ion-button>
+</ion-content>

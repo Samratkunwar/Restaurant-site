@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    loadChildren: () => import('./authentication_components/profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./profile_components/profile/profile.module').then( m => m.ProfilePageModule)
   },
   {
     path: 'cart',
@@ -42,6 +42,11 @@ const routes: Routes = [
     path: 'add-item',
     loadChildren: () => import('./add-item/add-item.module').then( m => m.AddItemPageModule)
   },
+  {
+    path: 'edit-profile',
+    loadChildren: () => import('./profile_components/edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
+  },
+
 
 ];
 

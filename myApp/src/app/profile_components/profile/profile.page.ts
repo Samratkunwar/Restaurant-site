@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { Router } from '@angular/router';
 import { ModalController, ActionSheetController, AlertController } from '@ionic/angular';
-import { AddItemPage } from '../../add-item/add-item.page';
+// import { AddItemPage } from '../../add-item/add-item.page';
 // import { PhotoService } from '../services/photo.service';
+import { EditProfilePage } from '../edit-profile/edit-profile.page';
 
 @Component({
   selector: 'app-profile',
@@ -94,7 +95,7 @@ export class ProfilePage implements OnInit {
  async edit_profile(i) {
   const modal = await this.modalController.create({
     
-    component: AddItemPage,
+    component: EditProfilePage,
     componentProps: {
       'Cname' : this.character[i].Cname, 
       'Cemail':this.character[i].Cemail, 
