@@ -40,7 +40,7 @@ const routes: Routes = [
   },
   {
     path: 'add-item',
-    loadChildren: () => import('./add-item/add-item.module').then( m => m.AddItemPageModule)
+    loadChildren: () => import('./home_components/add-item/add-item.module').then( m => m.AddItemPageModule)
   },
   {
     path: 'edit-profile',

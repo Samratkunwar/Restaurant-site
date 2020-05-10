@@ -10,8 +10,7 @@
   <!-- edit option in the modal when supplier user is logged in -->
   <ion-list *ngIf="edit">
     <ion-card>
-      <img src="../../assets/pics/pic1.jpg" />
-      <!-- <ion-input class="pic__button" type="file"></ion-input> -->
+      <img src="{{item_pic}}" />
       <ion-card-header>
         <ion-label>Item Name:</ion-label>
         <ion-input [(ngModel)]="item_name" type="text"></ion-input>
@@ -34,7 +33,7 @@
   <!-- order option when restaurnat/wholesalers owner is logged in -->
   <ion-list *ngIf="!edit">
     <ion-card>
-      <img src="../../assets/pics/pic1.jpg" />
+      <img src="{{item_pic}}" />
       <ion-card-header>
         <ion-card-title>{{item_name}}</ion-card-title>
         <ion-card-subtitle>Price: ${{item_price}}/ pcs    Quantity: {{item_quantity}}</ion-card-subtitle>

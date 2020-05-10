@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon class="back-button-icon" (click)="dismiss()" name="close" slot="start"></ion-icon>
+    <ion-title>New Item</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-label>
+      Item Pic:
+    </ion-label>
+    <ion-item>
+      <ion-input [(ngModel)]="newItem.item_pic" type="text" placeholder="Calamari.jpg"></ion-input>
+    </ion-item>
+
+    <ion-label>
+      Item Name:
+    </ion-label>
+    <ion-item>
+      <ion-input [(ngModel)]="newItem.item_name" type="text" placeholder="Calamari"></ion-input>
+    </ion-item>
+
+    <ion-label>
+      Item Price:
+    </ion-label>
+    <ion-item>
+      <ion-input [(ngModel)]="newItem.item_price" type="number" placeholder="0"></ion-input>
+    </ion-item>
+
+    <ion-label>
+      Quantity Available:
+    </ion-label>
+    <ion-item>
+      <ion-input [(ngModel)]="newItem.item_quantity" type="number" placeholder="0"></ion-input>
+    </ion-item>
+      
+  </ion-list>
+  <ion-button class="done_Button" (click)="addItem()">Done</ion-button>
+</ion-content>

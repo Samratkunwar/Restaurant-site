@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductsPage } from '../products/products.page'
 import { ModalController, ActionSheetController, AlertController } from '@ionic/angular';
-
-
+import { StorageService, Item } from '../../services/storage.service';
+import { Platform } from '@ionic/angular';
+import { AddItemPage } from '../add-item/add-item.page';
 
 @Component({
   selector: 'app-home',
@@ -13,22 +14,31 @@ import { ModalController, ActionSheetController, AlertController } from '@ionic/
 export class HomePage {
 
   //variables 
+  products: Item[] = [];
+  newItem: Item = <Item>{};
+
   organization_type: string;
   status: boolean;
   image = ''
-  products= [
-    { organization:"Restaurant 1", item_name: "item 1", item_price: 20, item_quantity: 20},
-    { organization:"Restaurant 2", item_name: "item 2", item_price: 30, item_quantity: 30},
-    { organization:"Restaurant 3", item_name: "item 3", item_price: 40, item_quantity: 20},
-    { organization:"Restaurant 4", item_name: "item 4", item_price: 50, item_quantity: 20},
-  ]
+  // products= [
+  //   { organization:"Restaurant 1", item_name: "item 1", item_price: 20, item_quantity: 20},
+  //   { organization:"Restaurant 2", item_name: "item 2", item_price: 30, item_quantity: 30},
+  //   { organization:"Restaurant 3", item_name: "item 3", item_price: 40, item_quantity: 20},
+  //   { organization:"Restaurant 4", item_name: "item 4", item_price: 50, item_quantity: 20},
+  // ]
 
   constructor(
     public modalController: ModalController , 
     private router: Router, 
     public actionSheetController: ActionSheetController,
-    public alertController : AlertController 
-    ) {}
+    public alertController : AlertController,
+    private storageService: StorageService,
+    private plt: Platform 
+    ) { 
+      this.plt.ready().then(() => {
+        this.loadItems();
+      })
+    }
 
   ngOnInit() {
 
@@ -41,10 +51,23 @@ export class HomePage {
       this.status = false;
     }
 
-    this.image = '../../assets/pics/hotel1.jpg'
+  
+    // let data = this.storage.get("product").then((val) => {
+    //   console.log(val.item_name);
+    // });
+
+    this.image = 'https://www.pefoods.com.au/assets/images/bandd-logo.jpg'
     
   }
 
+  loadItems() {
+    this.storageService.getItems().then(items => {
+      this.products = items;
+    })
+  }  
+  
+
+ 
       /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
      //                                                                                                             //
     //                                  Edit modal controller                                                      //
@@ -52,15 +75,17 @@ export class HomePage {
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   // Functions for Organization_type: 'Suppliers'
-  async editProd(i) {
+  async editProd(item: Item) {
+    
     const modal = await this.modalController.create({
       component: ProductsPage,
       componentProps: {
         'organization_type' : this.organization_type,
-        'organization' : this.products[i].organization,
-        'item_name' : this.products[i].item_name,
-        'item_price': this.products[i].item_price,
-        'item_quantity': this.products[i].item_quantity
+        // 'organization' : this.products[i].organization,
+        'item_pic': item.item_pic,
+        'item_name' : item.item_name,
+        'item_price': item.item_price,
+        'item_quantity': item.item_quantity
       }
     });
     modal.onDidDismiss().then((edited_data) => {
@@ -68,10 +93,16 @@ export class HomePage {
       if ((nc['item_name'] == undefined) && (nc['item_price'] == undefined) && (nc['item_quantity'] == undefined)) {
 
       } else {
-        this.products[i].organization = nc['organization'];
-        this.products[i].item_name = nc['item_name'];
-        this.products[i].item_price = nc['item_price'];
-        this.products[i].item_quantity = nc['item_quantity'];
+        // this.products[i].organization = nc['organization'];
+        item.item_pic = nc['item_pic'];
+        item.item_name = nc['item_name'];
+        item.item_price = nc['item_price'];
+        item.item_quantity = nc['item_quantity'];
+
+        this.storageService.updateItem(item).then(item => {
+          console.log(item);
+          this.loadItems();
+        })
       }
     })
     return await modal.present();
@@ -84,8 +115,12 @@ export class HomePage {
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   // function to delete respective item
-  deleteProd(i) {
-    this.products.splice(i, 1);
+  deleteProd(item: Item) {
+    this.storageService.deleteItem(item.id).then(item => {
+      this.loadItems();
+      console.log("Item Deleted");
+    })
+    // this.products.splice(i, 1);
   };
   
       /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -100,7 +135,7 @@ export class HomePage {
       component: ProductsPage,
       componentProps: {
         'organization_type' : this.organization_type,
-        'organization': this.products[i].organization,
+        // 'organization': this.products[i].organization,
         'item_name' : this.products[i].item_name,
         'item_price': this.products[i].item_price,
         'item_quantity': this.products[i].item_quantity
@@ -139,6 +174,7 @@ export class HomePage {
       const actionSheet = await this.actionSheetController.create({
         // header: '',
         buttons: [
+  
           {
             text: 'Delete',
             role: 'destructive',

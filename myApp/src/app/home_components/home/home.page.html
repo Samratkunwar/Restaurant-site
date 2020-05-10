@@ -7,9 +7,9 @@
 
 <ion-content>
   
-  <ion-card class="home__card" *ngFor="let product of products, index as i" (click)="showMenu(i)">
+  <ion-card class="home__card" *ngFor="let product of products, index as i" (click)="showMenu(product)">
   
-      <ion-img [src]="image"></ion-img>
+      <ion-img [src]="product.item_pic"></ion-img>
       <ion-avatar class="home__profile-pic">
         <ion-img [src]="image"></ion-img>
       </ion-avatar>

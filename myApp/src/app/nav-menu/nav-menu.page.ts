@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController, ActionSheetController, AlertController } from '@ionic/angular';
-import { ProductsPage } from '../home_components/products/products.page';
+import { AddItemPage } from '../home_components/add-item/add-item.page';
+
+
 
 @Component({
   selector: 'app-nav-menu',
@@ -42,14 +44,12 @@ export class NavMenuPage implements OnInit {
  
     // function to add new items to the list by the app owner
     async addItem() {
-      const modal = await this.modalController.create({
-        component: ProductsPage,
-        componentProps: {}
-      });
-      modal.onDidDismiss().then((new_data) => {
-        alert('item added')
-      })
-      return await modal.present();
+      // const modal = await this.modalController.create({
+      //   component: AddItemPage,
+      //   componentProps: []
+      // });
+      // return await modal.present();
+      this.router.navigateByUrl('add-item');
     };
 
 }

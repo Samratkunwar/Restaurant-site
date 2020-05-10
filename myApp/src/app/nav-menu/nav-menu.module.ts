@@ -8,6 +8,8 @@ import { NavMenuPageRoutingModule } from './nav-menu-routing.module';
 
 import { NavMenuPage } from './nav-menu.page';
 
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +17,7 @@ import { NavMenuPage } from './nav-menu.page';
     IonicModule,
     NavMenuPageRoutingModule
   ],
-  declarations: [NavMenuPage]
+  declarations: [NavMenuPage ],
+  entryComponents: []
 })
 export class NavMenuPageModule {}

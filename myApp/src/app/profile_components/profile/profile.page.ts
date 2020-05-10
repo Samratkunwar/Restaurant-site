@@ -87,8 +87,8 @@ export class ProfilePage implements OnInit {
   }
 
   // function to check order status
-  order_status() {
-    alert('Comeback later');
+  async order_status() {
+      alert('Comeback later');
   }
 
  // function to update profile
